@@ -7,9 +7,21 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-
+  
   body{
+    overflow-x: hidden;
     background-color: ${({ theme }) => theme.colors.primary};
+  }
+  
+  #root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main{
+    flex: 1;
   }
 
   ul, li{
