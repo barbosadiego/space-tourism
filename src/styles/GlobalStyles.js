@@ -71,6 +71,10 @@ const GlobalStyles = createGlobalStyle`
     line-height: ${pxToRem(32)};
     letter-spacing: ${pxToRem(2.7)};
   }
+
+  a{
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyles;
