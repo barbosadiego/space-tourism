@@ -32,25 +32,49 @@ const Header = () => {
 
         <ul>
           <Link to="/">
-            <SyledItem active={active === 1} onClick={() => setActive(1)}>
+            <SyledItem
+              active={active === 1}
+              onClick={() => {
+                setActive(1);
+                setIsMenuOpen(false);
+              }}
+            >
               <span>00</span>
               <NavText>home</NavText>
             </SyledItem>
           </Link>
           <Link to="/destination">
-            <SyledItem active={active === 2} onClick={() => setActive(2)}>
+            <SyledItem
+              active={active === 2}
+              onClick={() => {
+                setActive(2);
+                setIsMenuOpen(false);
+              }}
+            >
               <span>01</span>
               <NavText>destination</NavText>
             </SyledItem>
           </Link>
           <Link to="/crew">
-            <SyledItem active={active === 3} onClick={() => setActive(3)}>
+            <SyledItem
+              active={active === 3}
+              onClick={() => {
+                setActive(3);
+                setIsMenuOpen(false);
+              }}
+            >
               <span>02</span>
               <NavText>crew</NavText>
             </SyledItem>
           </Link>
           <Link to="/technology">
-            <SyledItem active={active === 4} onClick={() => setActive(4)}>
+            <SyledItem
+              active={active === 4}
+              onClick={() => {
+                setActive(4);
+                setIsMenuOpen(false);
+              }}
+            >
               <span>04</span>
               <NavText>technology</NavText>
             </SyledItem>
