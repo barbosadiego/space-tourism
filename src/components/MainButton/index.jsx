@@ -1,8 +1,10 @@
 import React from 'react';
-import MainButton from './styles';
+import StyledMainButton from './styles';
 
-const index = ({ buttonWidth, children }) => {
-  return <MainButton buttonWidth={buttonWidth}>{children}</MainButton>;
+const MainButton = ({ buttonWidth, children }) => {
+  return (
+    <StyledMainButton buttonWidth={buttonWidth}>{children}</StyledMainButton>
+  );
 };
 
-export default index;
+export default MainButton;

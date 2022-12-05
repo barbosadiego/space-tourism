@@ -1,8 +1,8 @@
 import React from 'react';
-import NavText from './styles';
+import StyledNavText from './styles';
 
-const index = ({ children }) => {
-  return <NavText>{children}</NavText>;
+const NavText = ({ children }) => {
+  return <StyledNavText>{children}</StyledNavText>;
 };
 
-export default index;
+export default NavText;

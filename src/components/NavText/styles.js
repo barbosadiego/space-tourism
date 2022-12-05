@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import pxToRem from '../../helper/tipographySwitch';
 
-const NavText = styled.p`
+const StyledNavText = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 400;
   font-size: ${pxToRem(16)};
@@ -10,4 +10,4 @@ const NavText = styled.p`
   letter-spacing: ${pxToRem(2.7)};
 `;
 
-export default NavText;
+export default StyledNavText;

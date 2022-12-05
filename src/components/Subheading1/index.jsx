@@ -1,8 +1,8 @@
 import React from 'react';
-import Subheading1 from './styles';
+import StyuledSubheading1 from './styles';
 
-const index = ({ children }) => {
-  return <Subheading1>{children}</Subheading1>;
+const Subheading1 = ({ children }) => {
+  return <StyuledSubheading1>{children}</StyuledSubheading1>;
 };
 
-export default index;
+export default Subheading1;

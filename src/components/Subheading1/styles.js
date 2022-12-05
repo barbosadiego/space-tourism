@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import pxToRem from '../../helper/tipographySwitch';
 
-const Subheading1 = styled.p`
+const StyledSubheading1 = styled.p`
   font-family: 'Bellefair', sans-serif;
   font-weight: 400;
   font-size: ${pxToRem(28)};
@@ -9,4 +9,4 @@ const Subheading1 = styled.p`
   text-transform: uppercase;
 `;
 
-export default Subheading1;
+export default StyledSubheading1;

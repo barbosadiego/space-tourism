@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import pxToRem from '../../helper/tipographySwitch';
 
-const MainButton = styled.div`
+const StyledMainButton = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   width: ${({ buttonWidth }) => buttonWidth + 'px'};
   height: ${({ buttonWidth }) => buttonWidth + 'px'};
@@ -22,4 +22,4 @@ const MainButton = styled.div`
   }
 `;
 
-export default MainButton;
+export default StyledMainButton;
