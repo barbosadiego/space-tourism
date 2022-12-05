@@ -4,17 +4,36 @@ import logo from '../../assets/shared/logo.svg';
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import close from '../../assets/shared/icon-close.svg';
 import NavText from '../NavText';
-import MobileMenu, { SyledItem } from './styles';
+import MobileMenu, { SyledItem, DesktopMenu } from './styles';
 import Container from '../../components/Container';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = isMenuOpen ? 'hidden' : '';
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (!window.matchMedia('(min-width: 768px)').matches) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
+
+  if (!isMobile)
+    return (
+      <Container>
+        <DesktopMenu>
+          <h1>desktop</h1>
+        </DesktopMenu>
+      </Container>
+    );
+
+  //mobile menu
   return (
     <Container>
       <MobileMenu isOpen={isMenuOpen}>
