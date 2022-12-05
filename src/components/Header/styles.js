@@ -70,4 +70,6 @@ export const SyledItem = styled.li`
     `}
 `;
 
+export const DesktopMenu = styled.header``;
+
 export default MobileMenu;
