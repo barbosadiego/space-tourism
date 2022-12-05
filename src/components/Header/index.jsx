@@ -24,11 +24,36 @@ const Header = () => {
     }
   }, []);
 
+  // desktop and tablet menu
   if (!isMobile)
     return (
       <Container>
         <DesktopMenu>
-          <h1>desktop</h1>
+          <div>
+            <img src={logo} alt="Space Tourism Website logo" />
+          </div>
+          <ul>
+            <li>
+              <Link to="/">
+                <NavText>home</NavText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/destination">
+                <NavText>destination</NavText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/crew">
+                <NavText>crew</NavText>
+              </Link>
+            </li>
+            <li>
+              <Link to="/technology">
+                <NavText>technology</NavText>
+              </Link>
+            </li>
+          </ul>
         </DesktopMenu>
       </Container>
     );
