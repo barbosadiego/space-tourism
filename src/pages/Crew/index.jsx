@@ -5,7 +5,7 @@ const Crew = (props) => {
   return (
     <>
       <Container>
-        <p>home page</p>
+        <p>crew page</p>
       </Container>
     </>
   );

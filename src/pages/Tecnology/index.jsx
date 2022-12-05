@@ -1,14 +1,14 @@
 import React from 'react';
 import Container from '../../components/Container';
 
-const Tecnology = (props) => {
+const Technology = (props) => {
   return (
     <>
       <Container>
-        <p>home page</p>
+        <p>tecnology page</p>
       </Container>
     </>
   );
 };
 
-export default Tecnology;
+export default Technology;

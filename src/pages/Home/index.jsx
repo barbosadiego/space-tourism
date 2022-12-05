@@ -1,11 +1,14 @@
 import React from 'react';
+import Container from '../../components/Container';
 
-const index = (props) => {
+const Home = (props) => {
   return (
-    <div>
-      <p>home</p>
-    </div>
+    <>
+      <Container>
+        <p>home page</p>
+      </Container>
+    </>
   );
 };
 
-export default index;
+export default Home;

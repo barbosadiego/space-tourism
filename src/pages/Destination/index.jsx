@@ -5,7 +5,7 @@ const Destination = (props) => {
   return (
     <>
       <Container>
-        <p>home page</p>
+        <p>destination page</p>
       </Container>
     </>
   );
