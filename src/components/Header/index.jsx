@@ -31,22 +31,30 @@ const Header = () => {
         </button>
 
         <ul>
-          <SyledItem active={active === 1} onClick={() => setActive(1)}>
-            <span>00</span>
-            <NavText>home</NavText>
-          </SyledItem>
-          <SyledItem active={active === 2} onClick={() => setActive(2)}>
-            <span>01</span>
-            <NavText>destination</NavText>
-          </SyledItem>
-          <SyledItem active={active === 3} onClick={() => setActive(3)}>
-            <span>02</span>
-            <NavText>crew</NavText>
-          </SyledItem>
-          <SyledItem active={active === 4} onClick={() => setActive(4)}>
-            <span>04</span>
-            <NavText>technology</NavText>
-          </SyledItem>
+          <Link to="/">
+            <SyledItem active={active === 1} onClick={() => setActive(1)}>
+              <span>00</span>
+              <NavText>home</NavText>
+            </SyledItem>
+          </Link>
+          <Link to="/destination">
+            <SyledItem active={active === 2} onClick={() => setActive(2)}>
+              <span>01</span>
+              <NavText>destination</NavText>
+            </SyledItem>
+          </Link>
+          <Link to="/crew">
+            <SyledItem active={active === 3} onClick={() => setActive(3)}>
+              <span>02</span>
+              <NavText>crew</NavText>
+            </SyledItem>
+          </Link>
+          <Link to="/technology">
+            <SyledItem active={active === 4} onClick={() => setActive(4)}>
+              <span>04</span>
+              <NavText>technology</NavText>
+            </SyledItem>
+          </Link>
         </ul>
       </MobileMenu>
     </Container>
