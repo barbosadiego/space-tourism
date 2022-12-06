@@ -1,35 +1,13 @@
 import styled, { css } from 'styled-components';
+import pxToRem from '../../helper/tipographySwitch';
 
-const StyledMenu = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: 20px;
+export const StyledItem = styled.li`
+  position: relative;
 
-  & ul {
-    display: flex;
-    gap: 37px;
-
-    &::after {
-      content: '';
-      background-color: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(40px);
-      position: absolute;
-      width: 60%;
-      height: 96px;
-      top: 0;
-      right: -30px;
-      z-index: -1;
-      transform: translateX(-30px);
-    }
-
-    li {
-      position: relative;
-      ${({ active }) =>
-        active &&
-        css`
-          background-color: red;
-        `}
+  // these styles are aplied only if active variable is true
+  ${({ active }) =>
+    active &&
+    css`
       &::after {
         position: absolute;
         bottom: -16px;
@@ -38,12 +16,64 @@ const StyledMenu = styled.header`
         width: 100%;
         height: 3px;
         background-color: ${({ theme }) => theme.colors.white};
+        z-index: 5;
       }
-      a {
-        padding: 20px 0;
-        display: inline-block;
-      }
+    `}
+  a {
+    padding: 20px 0;
+    display: inline-block;
+  }
+`;
+
+const StyledMenu = styled.header`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: 0px 20px 20px;
+  padding-top: ${({ isDesktop }) => (isDesktop ? '40px' : '0px')};
+
+  & ul {
+    grid-column: 2/3;
+    justify-self: ${({ isDesktop }) => (isDesktop ? 'right' : 'left')};
+    width: 100%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    gap: 37px;
+    width: ${({ isDesktop }) => (isDesktop ? '700px' : 'unset')};
+    justify-content: space-evenly;
+    position: relative;
+
+    &::after {
+      content: '';
+      grid-column: 2/3;
+      position: absolute;
+      width: 200%;
+      height: 96px;
+      z-index: -1;
+      background-color: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(40px);
+      transform: translateX(20%);
     }
+
+    // these styles are aplied only if isDesktop variable is true
+    ${({ isDesktop }) =>
+      isDesktop &&
+      css`
+        a {
+          display: flex;
+          gap: 11px;
+        }
+
+        span {
+          color: ${({ theme }) => theme.colors.white};
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: ${pxToRem(16)};
+          font-weight: 700;
+          line-height: ${pxToRem(19.2)};
+          letter-spacing: ${pxToRem(2.7)};
+        }
+      `}
   }
 `;
 
