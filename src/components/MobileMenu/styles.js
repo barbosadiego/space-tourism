@@ -40,22 +40,23 @@ const StylesMobileMenu = styled.header`
     background-color: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(40px);
     top: 0;
-    right: -100%;
+    right: 0;
     bottom: 0;
-    width: 0px;
+    width: 80%;
+    transform: translateX(110%);
     display: flex;
     flex-direction: column;
     gap: 32px;
     padding-top: 120px;
     padding-left: 32px;
     transition: 0.3s;
-    overflow: hidden;
 
     ${({ isOpen }) =>
       isOpen &&
       css`
-        right: 0%;
         width: 80%;
+        transform: translateX(0);
+        position: fixed;
       `}
 
     li {
