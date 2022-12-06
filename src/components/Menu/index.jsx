@@ -5,17 +5,7 @@ import NavText from '../NavText';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/shared/logo.svg';
 
-const Menu = ({ active, setActive }) => {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia('(min-width: 1100px)').matches) {
-      setIsDesktop(true);
-    } else {
-      setIsDesktop(false);
-    }
-  }, []);
-
+const Menu = ({ active, setActive, isDesktop }) => {
   return (
     <Container>
       <StyledMenu isDesktop={isDesktop}>
