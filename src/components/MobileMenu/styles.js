@@ -33,6 +33,7 @@ export const SyledItem = styled.li`
 const StylesMobileMenu = styled.header`
   display: flex;
   justify-content: space-between;
+  padding: 20px 0px;
 
   & ul {
     position: absolute;
