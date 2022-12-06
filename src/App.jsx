@@ -3,19 +3,30 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Crew from './pages/Crew';
 import Destination from './pages/Destination';
-
 import Home from './pages/Home';
 import Technology from './pages/Tecnology';
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isMobile, setIsMobile] = useState();
+  const [isTablet, setIsTablet] = useState();
+  const [isDesktop, setIsDesktop] = useState();
 
   useEffect(() => {
-    if (!window.matchMedia('(min-width: 768px)').matches) {
+    if (window.matchMedia('(max-width: 767px)').matches) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (
+      window.matchMedia('(min-width: 768px)').matches &&
+      window.matchMedia('(max-width: 1099px)').matches
+    ) {
+      setIsTablet(true);
+    } else {
+      setIsTablet(false);
     }
   }, []);
 
@@ -26,6 +37,10 @@ const App = () => {
       setIsDesktop(false);
     }
   }, []);
+
+  console.log('mobile ', isMobile);
+  console.log('tablet ', isTablet);
+  console.log('desktop ', isDesktop);
 
   return (
     <>
@@ -41,6 +56,7 @@ const App = () => {
             element={
               <Home
                 isMobile={isMobile}
+                isTablet={isTablet}
                 isDesktop={isDesktop}
                 setIsMobile={setIsMobile}
               />
@@ -51,6 +67,7 @@ const App = () => {
             element={
               <Destination
                 isMobile={isMobile}
+                isTablet={isTablet}
                 isDesktop={isDesktop}
                 setIsMobile={setIsMobile}
               />
@@ -61,6 +78,7 @@ const App = () => {
             element={
               <Crew
                 isMobile={isMobile}
+                isTablet={isTablet}
                 isDesktop={isDesktop}
                 setIsMobile={setIsMobile}
               />
@@ -71,6 +89,7 @@ const App = () => {
             element={
               <Technology
                 isMobile={isMobile}
+                isTablet={isTablet}
                 isDesktop={isDesktop}
                 setIsMobile={setIsMobile}
               />
