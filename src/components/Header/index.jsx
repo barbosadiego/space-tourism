@@ -7,10 +7,6 @@ const Header = ({ isMobile, isDesktop }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState(1);
 
-  useEffect(() => {
-    document.body.style.overflowY = isMenuOpen ? 'hidden' : '';
-  }, [isMenuOpen]);
-
   // desktop and tablet menu
   if (!isMobile)
     return (
