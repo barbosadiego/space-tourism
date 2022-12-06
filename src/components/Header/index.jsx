@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MobileMenu from '../MobileMenu';
 import Menu from '../Menu';
 import StyledHeader from './styles';
