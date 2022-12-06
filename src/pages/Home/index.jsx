@@ -1,11 +1,15 @@
 import React from 'react';
 import Container from '../../components/Container';
+import StyledHome from './styles';
 
-const Home = (props) => {
+const Home = ({ isMobile, isDesktop }) => {
+  console.log(isMobile);
   return (
     <>
       <Container>
-        <p>home page</p>
+        <StyledHome isMobile={isMobile} isDesktop={isDesktop}>
+          <p>home page</p>
+        </StyledHome>
       </Container>
     </>
   );
