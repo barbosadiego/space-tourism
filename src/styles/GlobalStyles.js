@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body{
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: ${({ theme }) => theme.colors.primary};
   }
   
