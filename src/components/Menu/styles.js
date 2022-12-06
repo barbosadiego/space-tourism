@@ -34,7 +34,7 @@ const StyledMenu = styled.header`
 
   & ul {
     grid-column: 2/3;
-    justify-self: ${({ isDesktop }) => (isDesktop ? 'right' : 'left')};
+    justify-self: ${({ isDesktop }) => (isDesktop ? 'right' : 'unset')};
     width: 100%;
     height: 96px;
     display: flex;
@@ -72,6 +72,15 @@ const StyledMenu = styled.header`
           font-weight: 700;
           line-height: ${pxToRem(19.2)};
           letter-spacing: ${pxToRem(2.7)};
+        }
+
+        &::before {
+          position: absolute;
+          left: -470px;
+          content: '';
+          height: 1px;
+          width: 470px;
+          background-color: rgba(255, 255, 255, 0.25);
         }
       `}
   }
