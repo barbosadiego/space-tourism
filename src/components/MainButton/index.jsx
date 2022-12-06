@@ -1,9 +1,11 @@
 import React from 'react';
 import StyledMainButton from './styles';
 
-const MainButton = ({ buttonWidth, children }) => {
+const MainButton = ({ buttonWidth, children, isDesktop }) => {
   return (
-    <StyledMainButton buttonWidth={buttonWidth}>{children}</StyledMainButton>
+    <StyledMainButton buttonWidth={buttonWidth} isDesktop={isDesktop}>
+      {children}
+    </StyledMainButton>
   );
 };
 
