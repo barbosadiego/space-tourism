@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import MobileMenu from '../MobileMenu';
 import Menu from '../Menu';
+import StyledHeader from './styles';
 
-const Header = () => {
+const Header = ({ isMobile, isDesktop }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = isMenuOpen ? 'hidden' : '';
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    if (!window.matchMedia('(min-width: 768px)').matches) {
-      setIsMobile(true);
-    }
-  }, []);
-
   // desktop and tablet menu
   if (!isMobile)
-    return <Menu isMobile={isMobile} active={active} setActive={setActive} />;
+    return (
+      <StyledHeader>
+        <Menu isDesktop={isDesktop} active={active} setActive={setActive} />;
+      </StyledHeader>
+    );
 
   //mobile menu
   return (
-    <MobileMenu
-      isMenuOpen={isMenuOpen}
-      setIsMenuOpen={setIsMenuOpen}
-      active={active}
-      setActive={setActive}
-    />
+    <StyledHeader>
+      <MobileMenu
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        active={active}
+        setActive={setActive}
+      />
+    </StyledHeader>
   );
 };
 
