@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import MobileMenu from '../MobileMenu';
 import Menu from '../Menu';
 import StyledHeader from './styles';
+import { WindowContext } from '../../contexts/windowContext';
 
-const Header = ({ isMobile, isDesktop }) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState(1);
+  const { windowData } = useContext(WindowContext);
 
   // desktop and tablet menu
-  if (!isMobile)
+  if (!windowData.mobile)
     return (
       <StyledHeader>
-        <Menu isDesktop={isDesktop} active={active} setActive={setActive} />;
+        <Menu
+          isDesktop={windowData.desktop}
+          active={active}
+          setActive={setActive}
+        />
+        ;
       </StyledHeader>
     );
 
