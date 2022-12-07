@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body{
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: ${({ theme }) => theme.colors.primary};
   }
   
@@ -37,40 +37,11 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.white};
   }
 
-  h1{
-    font-size: ${pxToRem(150)};
-    line-height: ${pxToRem(171)};
-  }
-
-  h2{
-    font-size: ${pxToRem(100)};
-    line-height: ${pxToRem(115)};
-  }
-
-  h3{
-    font-size: ${pxToRem(56)};
-    line-height: ${pxToRem(64)};
-  }
-
-  h4{
-    font-size: ${pxToRem(32)};
-    line-height: ${pxToRem(37)};
-  }
-
-  h5{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: ${pxToRem(28)};
-    line-height: ${pxToRem(32)};
-    letter-spacing: ${pxToRem(4.75)};
-  }
-
   p{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: ${pxToRem(18)};
+    font-family: 'Barlow', sans-serif;
     font-weight: 400;
-    line-height: ${pxToRem(32)};
-    letter-spacing: ${pxToRem(2.7)};
-  }
+    text-transform: none;
+  } 
 
   a{
     text-decoration: none;
