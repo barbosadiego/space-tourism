@@ -13,6 +13,26 @@ export const StyletInfo = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      max-width: 100%;
+      height: calc(100vh - 175px);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      /* justify-items: center; */
+      text-align: left;
+
+      & div:nth-child(1) {
+        max-width: 450px;
+      }
+
+      & p:nth-child(1) {
+        font-size: ${pxToRem(28)};
+        line-height: ${pxToRem(33.6)};
+        letter-spacing: ${pxToRem(4.72)};
+      }
+    `}
 `;
 
 const StyledHome = styled.section`
@@ -66,6 +86,21 @@ const StyledHome = styled.section`
 
       p:last-of-type {
         margin-bottom: 150px;
+      }
+    `}
+
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      h1 {
+        line-height: ${pxToRem(171.9)};
+        font-size: ${pxToRem(150)};
+        margin: 24px 0;
+      }
+
+      p:last-of-type {
+        font-size: ${pxToRem(18)};
+        line-height: ${pxToRem(32)};
       }
     `}
 `;
