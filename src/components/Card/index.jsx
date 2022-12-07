@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { WindowContext } from '../../contexts/windowContext';
 import {
   StyledCard,
   StyledInfo,
@@ -9,8 +10,15 @@ import {
 } from './styles';
 
 const Card = ({ item }) => {
+  const { windowData } = useContext(WindowContext);
+
   return (
-    <StyledCard>
+    <StyledCard
+      className="card"
+      isMobile={windowData.mobile}
+      isTablet={windowData.tablet}
+      isDesktop={windowData.desktop}
+    >
       <StyledImage>
         <p>
           <span>01</span>
@@ -18,13 +26,8 @@ const Card = ({ item }) => {
         </p>
         <img src={`${item.images.png}`} alt={item.name} />
       </StyledImage>
+
       <StyledInfo>
-        <StyledSelect>
-          <li>moon</li>
-          <li>mars</li>
-          <li>europa</li>
-          <li>titan</li>
-        </StyledSelect>
         <h1>{item.name}</h1>
         <p>{item.description}</p>
         <hr />
