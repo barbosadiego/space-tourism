@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '../../components/Container';
 import NavText from '../../components/NavText';
 import MainButton from '../../components/MainButton';
 import StyledHome, { StyletInfo } from './styles';
+import { WindowContext } from '../../contexts/windowContext';
 
-const Home = ({ isMobile, isDesktop, isTablet }) => {
+const Home = () => {
+  const { windowData } = useContext(WindowContext);
+
   return (
     <>
-      <StyledHome isMobile={isMobile} isDesktop={isDesktop} isTablet={isTablet}>
+      <StyledHome
+        isMobile={windowData.mobile}
+        isDesktop={windowData.desktop}
+        isTablet={windowData.tablet}
+      >
         <Container>
-          <StyletInfo isDesktop={isDesktop}>
+          <StyletInfo isDesktop={windowData.desktop}>
             <div>
               <NavText>SO, YOU WANT TO TRAVEL TO</NavText>
               <h1>space</h1>
@@ -20,18 +27,18 @@ const Home = ({ isMobile, isDesktop, isTablet }) => {
                 of this world experience!
               </p>
             </div>
-            {isMobile && (
-              <MainButton buttonWidth={150} isDesktop={isDesktop}>
+            {windowData.mobile && (
+              <MainButton buttonWidth={150} isDesktop={false}>
                 explore
               </MainButton>
             )}
-            {isTablet && (
-              <MainButton buttonWidth={242} isDesktop={isDesktop}>
+            {windowData.tablet && (
+              <MainButton buttonWidth={242} isDesktop={false}>
                 explore
               </MainButton>
             )}
-            {isDesktop && (
-              <MainButton buttonWidth={274} isDesktop={isDesktop}>
+            {windowData.desktop && (
+              <MainButton buttonWidth={274} isDesktop={true}>
                 explore
               </MainButton>
             )}
