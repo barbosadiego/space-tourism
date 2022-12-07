@@ -1,100 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import { WindowContext } from './contexts/windowContext';
 import Crew from './pages/Crew';
 import Destination from './pages/Destination';
 import Home from './pages/Home';
 import Technology from './pages/Tecnology';
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState();
-  const [isTablet, setIsTablet] = useState();
-  const [isDesktop, setIsDesktop] = useState();
+  const { windowData, setWindowData } = useContext(WindowContext);
 
-  useEffect(() => {
+  // this funcion will check the size of browser window
+  function checkWindowSize() {
     if (window.matchMedia('(max-width: 767px)').matches) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (
+      setWindowData({ ...windowData, mobile: true });
+    } else if (
       window.matchMedia('(min-width: 768px)').matches &&
       window.matchMedia('(max-width: 1099px)').matches
     ) {
-      setIsTablet(true);
-    } else {
-      setIsTablet(false);
+      setWindowData({ ...windowData, tablet: true });
+    } else if (window.matchMedia('(min-width: 1100px)').matches) {
+      setWindowData({ ...windowData, desktop: true });
     }
-  }, []);
+  }
 
   useEffect(() => {
-    if (window.matchMedia('(min-width: 1100px)').matches) {
-      setIsDesktop(true);
-    } else {
-      setIsDesktop(false);
-    }
+    checkWindowSize();
   }, []);
-
-  console.log('mobile ', isMobile);
-  console.log('tablet ', isTablet);
-  console.log('desktop ', isDesktop);
 
   return (
     <>
-      <Header
-        isMobile={isMobile}
-        isDesktop={isDesktop}
-        setIsMobile={setIsMobile}
-      />
+      <Header />
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                isMobile={isMobile}
-                isTablet={isTablet}
-                isDesktop={isDesktop}
-                setIsMobile={setIsMobile}
-              />
-            }
-          />
-          <Route
-            path="/destination"
-            element={
-              <Destination
-                isMobile={isMobile}
-                isTablet={isTablet}
-                isDesktop={isDesktop}
-                setIsMobile={setIsMobile}
-              />
-            }
-          />
-          <Route
-            path="/crew"
-            element={
-              <Crew
-                isMobile={isMobile}
-                isTablet={isTablet}
-                isDesktop={isDesktop}
-                setIsMobile={setIsMobile}
-              />
-            }
-          />
-          <Route
-            path="/technology"
-            element={
-              <Technology
-                isMobile={isMobile}
-                isTablet={isTablet}
-                isDesktop={isDesktop}
-                setIsMobile={setIsMobile}
-              />
-            }
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/destination" element={<Destination />} />
+          <Route path="/crew" element={<Crew />} />
+          <Route path="/technology" element={<Technology />} />
         </Routes>
       </main>
     </>
