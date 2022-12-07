@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Card from '../../components/Card';
 import Container from '../../components/Container';
-import { StyledImage, StyledInfo } from './styles';
 
 const Destination = () => {
   const [data, setData] = useState();
@@ -19,12 +19,13 @@ const Destination = () => {
     getPageInfo();
   }, []);
 
-  console.log(data);
   return (
     <>
       <Container>
-        <StyledImage>image</StyledImage>
-        <StyledInfo>info</StyledInfo>
+        {data &&
+          data.destinations.map((item, index) => (
+            <Card item={item} key={index} />
+          ))}
       </Container>
     </>
   );
