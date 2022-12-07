@@ -16,7 +16,7 @@ const Card = ({ item }) => {
           <span>01</span>
           Pick your destination
         </p>
-        <img src={item.images.png} alt={item.name} />
+        <img src={`${item.images.png}`} alt={item.name} />
       </StyledImage>
       <StyledInfo>
         <StyledSelect>
