@@ -24,6 +24,7 @@ export const StyletInfo = styled.div`
       text-align: left;
 
       & div:nth-child(1) {
+        margin-left: 165px;
         max-width: 450px;
       }
 
