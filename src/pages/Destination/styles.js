@@ -5,6 +5,11 @@ export const StyledDial = styled.ul`
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
+  position: absolute;
+  width: 100vw;
+  top: 335px;
+  left: 0;
+  z-index: 10;
 
   ${({ isDesktop }) =>
     isDesktop &&
