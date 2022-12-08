@@ -3,6 +3,7 @@ import pxToRem from '../../helper/tipographySwitch';
 
 export const StyledCard = styled.div`
   position: absolute;
+  top: 0;
   left: 0;
   opacity: 0;
   width: 100vw;
@@ -15,6 +16,9 @@ export const StyledCard = styled.div`
   gap: ${pxToRem(95)};
   color: ${({ theme }) => theme.colors.white};
   padding: 20px 40px;
+  background-image: url('./images/destination/background-destination-mobile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 
   ${({ active }) =>
     active &&
@@ -29,6 +33,7 @@ export const StyledImage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 92px;
 
   & p {
     font-size: ${pxToRem(16)};
