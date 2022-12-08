@@ -27,6 +27,13 @@ export const StyledCard = styled.div`
       pointer-events: auto;
       z-index: 1;
     `}
+
+  // styles for tablet
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      gap: ${pxToRem(140)};
+    `}
 `;
 
 export const StyledImage = styled.div`
@@ -57,6 +64,29 @@ export const StyledImage = styled.div`
     width: 170px;
     height: 170px;
   }
+
+  // styles for tablet
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      width: 100%;
+      p {
+        align-self: flex-start;
+        font-size: ${pxToRem(20)};
+        line-height: ${pxToRem(24)};
+        letter-spacing: 3.38px;
+
+        span {
+          font-size: inherit;
+          margin-top: 20px;
+        }
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    `}
 `;
 
 export const StyledInfo = styled.div`
@@ -81,9 +111,29 @@ export const StyledInfo = styled.div`
     border-color: #383b4b;
     margin-bottom: 32px;
   }
+
+  // styles for tablet
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      h1 {
+        font-size: ${pxToRem(80)};
+        line-height: ${pxToRem(91.68)};
+      }
+
+      p {
+        width: 570px;
+        font-size: ${pxToRem(16)};
+        line-height: ${pxToRem(28)};
+      }
+    `}
 `;
 
 export const StyledDistance = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   span {
     display: block;
     font-family: 'Barlow Condensed', sans-serif;
@@ -100,4 +150,18 @@ export const StyledDistance = styled.div`
     color: ${({ theme }) => theme.colors.white};
     text-transform: uppercase;
   }
+
+  // styles for tablet
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 570px;
+
+      span,
+      p {
+        width: auto;
+      }
+    `}
 `;
