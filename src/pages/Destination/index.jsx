@@ -50,7 +50,7 @@ const Destination = () => {
         </StyledDial>
         {data &&
           data.destinations.map((item, index) => (
-            <Card item={item} key={index} />
+            <Card item={item} key={index} active={active} index={index} />
           ))}
       </Container>
     </>
