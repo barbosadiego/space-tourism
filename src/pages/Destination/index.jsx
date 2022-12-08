@@ -26,7 +26,7 @@ const Destination = () => {
   return (
     <>
       <Container>
-        <StyledDial isDesktop={windowData.desktop}>
+        <StyledDial isDesktop={windowData.desktop} isTablet={windowData.tablet}>
           <li>
             <StyledButton onClick={() => setActive(1)} active={active === 1}>
               moon
