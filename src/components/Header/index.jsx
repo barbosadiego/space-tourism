@@ -18,7 +18,6 @@ const Header = () => {
           active={active}
           setActive={setActive}
         />
-        ;
       </StyledHeader>
     );
 
