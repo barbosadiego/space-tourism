@@ -32,7 +32,18 @@ export const StyledCard = styled.div`
   ${({ isTablet }) =>
     isTablet &&
     css`
+      background-image: url('./images/destination/background-destination-tablet.jpg');
       gap: ${pxToRem(140)};
+    `}
+  
+  // styles for desktop
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      background-image: url('./images/destination/background-destination-desktop.jpg');
+      height: 100vh;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
     `}
 `;
 
@@ -87,6 +98,28 @@ export const StyledImage = styled.div`
         height: 300px;
       }
     `}
+
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      padding-top: 0;
+
+      p {
+        align-self: flex-start;
+        font-size: ${pxToRem(28)};
+        line-height: ${pxToRem(33.6)};
+        letter-spacing: 4.72px;
+
+        span {
+          font-size: inherit;
+        }
+      }
+
+      img {
+        width: 445px;
+        height: 445px;
+      }
+    `}
 `;
 
 export const StyledInfo = styled.div`
@@ -127,6 +160,35 @@ export const StyledInfo = styled.div`
         line-height: ${pxToRem(28)};
       }
     `}
+
+  // styles for desktop
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      grid-column: 2/3;
+      justify-self: start;
+      width: 445px;
+      display: initial;
+      position: initial;
+      /* top: 50%;
+      transform: translateY(-50%); */
+      text-align: left;
+
+      h1 {
+        font-size: ${pxToRem(100)};
+        line-height: ${pxToRem(114.6)};
+      }
+
+      p {
+        font-size: ${pxToRem(18)};
+        line-height: ${pxToRem(32)};
+        margin-bottom: 32px;
+      }
+
+      hr {
+        margin-bottom: 0;
+      }
+    `}
 `;
 
 export const StyledDistance = styled.div`
@@ -163,5 +225,13 @@ export const StyledDistance = styled.div`
       p {
         width: auto;
       }
+    `}
+
+  ${({ isDesktop }) =>
+    isDesktop &&
+    css`
+      flex-direction: row;
+      justify-content: unset;
+      gap: 80px;
     `}
 `;
