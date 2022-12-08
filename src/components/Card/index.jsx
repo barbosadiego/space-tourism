@@ -9,12 +9,13 @@ import {
   StyledTravel,
 } from './styles';
 
-const Card = ({ item }) => {
+const Card = ({ item, active, index }) => {
   const { windowData } = useContext(WindowContext);
 
   return (
     <StyledCard
-      className="card"
+      id={index + 1}
+      active={active === index + 1}
       isMobile={windowData.mobile}
       isTablet={windowData.tablet}
       isDesktop={windowData.desktop}
@@ -34,11 +35,9 @@ const Card = ({ item }) => {
         <StyledDistance>
           <span>AVG. DISTANCE</span>
           <p>{item.distance}</p>
-        </StyledDistance>
-        <StyledTravel>
           <span>Est. travel time</span>
           <p>{item.travel}</p>
-        </StyledTravel>
+        </StyledDistance>
       </StyledInfo>
     </StyledCard>
   );
