@@ -48,7 +48,7 @@ const StyledMenu = styled.header`
       content: '';
       grid-column: 2/3;
       position: absolute;
-      width: 200%;
+      /* width: 200%; */
       height: 96px;
       z-index: -1;
       background-color: rgba(255, 255, 255, 0.04);
