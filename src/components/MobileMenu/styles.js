@@ -1,6 +1,20 @@
 import styled, { css } from 'styled-components';
 import pxToRem from '../../helper/tipographySwitch';
 
+export const StyledMobileMenu = styled.header`
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
+
+  button {
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+`;
+
 export const SyledItem = styled.li`
   display: flex;
   align-items: center;
@@ -30,46 +44,27 @@ export const SyledItem = styled.li`
     `}
 `;
 
-const StylesMobileMenu = styled.header`
+export const MobileMenuArea = styled.ul`
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: 100vh;
+  transform: translate3d(110%, 0, 0);
   display: flex;
-  justify-content: space-between;
-  padding: 20px 0px;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 120px;
+  padding-left: 32px;
+  transition: 0.3s;
 
-  & ul {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(40px);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 80%;
-    transform: translateX(110%);
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    padding-top: 120px;
-    padding-left: 32px;
-    transition: 0.3s;
-
-    ${({ isOpen }) =>
-      isOpen &&
-      css`
-        width: 80%;
-        transform: translateX(0);
-        position: fixed;
-      `}
-
-    li {
-    }
-  }
-
-  button {
-    z-index: 10;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      width: 80%;
+      transform: translate3d(0, 0, 0);
+    `}
 `;
-
-export default StylesMobileMenu;
