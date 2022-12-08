@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
-import StyledMobileMenu, { SyledItem } from './styles';
+import React, { useEffect } from 'react';
+import { StyledMobileMenu, SyledItem, MobileMenuArea } from './styles';
 import Container from '../Container';
 import NavText from '../NavText';
 import logo from '../../assets/shared/logo.svg';
@@ -8,6 +8,10 @@ import hamburger from '../../assets/shared/icon-hamburger.svg';
 import close from '../../assets/shared/icon-close.svg';
 
 const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
+  useEffect(() => {
+    document.body.style.overflowY = isMenuOpen ? 'hidden' : '';
+  }, [isMenuOpen]);
+
   return (
     <Container>
       <StyledMobileMenu isOpen={isMenuOpen}>
@@ -23,7 +27,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
           )}
         </button>
 
-        <ul>
+        <MobileMenuArea isOpen={isMenuOpen}>
           <Link to="/">
             <SyledItem
               active={active === 1}
@@ -72,7 +76,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
               <NavText>technology</NavText>
             </SyledItem>
           </Link>
-        </ul>
+        </MobileMenuArea>
       </StyledMobileMenu>
     </Container>
   );
