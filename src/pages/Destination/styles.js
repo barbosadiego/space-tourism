@@ -24,6 +24,11 @@ export const StyledDial = styled.ul`
   ${({ isDesktop }) =>
     isDesktop &&
     css`
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 445px;
+
       button:hover {
         border-bottom-color: rgba(255, 255, 255, 0.5);
       }
