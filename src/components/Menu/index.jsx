@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import StyledMenu, { StyledItem } from './styles';
 import Container from '../Container';
 import NavText from '../NavText';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/shared/logo.svg';
 import { WindowContext } from '../../contexts/windowContext';
 
-const Menu = ({ active, setActive }) => {
+const Menu = ({ setIsMenuOpen }) => {
   const { windowData } = useContext(WindowContext);
+  const { pathname } = useLocation();
 
   return (
     <Container>
@@ -17,29 +18,29 @@ const Menu = ({ active, setActive }) => {
         </Link>
 
         <ul>
-          <StyledItem active={active === 1} onClick={() => setActive(1)}>
+          <StyledItem active={pathname === '/'}>
             <Link to="/">
               {windowData.desktop && <span>00</span>}
               <NavText>home</NavText>
             </Link>
           </StyledItem>
 
-          <StyledItem active={active === 2}>
-            <Link to="/destination" onClick={() => setActive(2)}>
+          <StyledItem active={pathname === '/destination'}>
+            <Link to="/destination">
               {windowData.desktop && <span>01</span>}
               <NavText>destination</NavText>
             </Link>
           </StyledItem>
 
-          <StyledItem active={active === 3}>
-            <Link to="/crew" onClick={() => setActive(3)}>
+          <StyledItem active={pathname === '/crew'}>
+            <Link to="/crew">
               {windowData.desktop && <span>02</span>}
               <NavText>crew</NavText>
             </Link>
           </StyledItem>
 
-          <StyledItem active={active === 4}>
-            <Link to="/technology" onClick={() => setActive(4)}>
+          <StyledItem active={pathname === '/technology'}>
+            <Link to="/technology">
               {windowData.desktop && <span>03</span>}
               <NavText>technology</NavText>
             </Link>
