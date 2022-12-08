@@ -11,6 +11,16 @@ export const StyledDial = styled.ul`
   left: 0;
   z-index: 10;
 
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      left: 50%;
+      transform: translateX(-50%);
+      gap: 36px;
+      width: 235px;
+      top: 520px;
+    `}
+
   ${({ isDesktop }) =>
     isDesktop &&
     css`
