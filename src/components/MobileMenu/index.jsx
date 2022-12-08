@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { StyledMobileMenu, SyledItem, MobileMenuArea } from './styles';
 import Container from '../Container';
@@ -7,7 +7,9 @@ import logo from '../../assets/shared/logo.svg';
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import close from '../../assets/shared/icon-close.svg';
 
-const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
+const MobileMenu = ({ isMenuOpen, setIsMenuOpen }) => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.body.style.overflowY = isMenuOpen ? 'hidden' : '';
   }, [isMenuOpen]);
@@ -30,9 +32,8 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
         <MobileMenuArea isOpen={isMenuOpen}>
           <Link to="/">
             <SyledItem
-              active={active === 1}
+              active={pathname === '/'}
               onClick={() => {
-                setActive(1);
                 setIsMenuOpen(false);
               }}
             >
@@ -42,9 +43,8 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
           </Link>
           <Link to="/destination">
             <SyledItem
-              active={active === 2}
+              active={pathname === '/destination'}
               onClick={() => {
-                setActive(2);
                 setIsMenuOpen(false);
               }}
             >
@@ -54,9 +54,8 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
           </Link>
           <Link to="/crew">
             <SyledItem
-              active={active === 3}
+              active={pathname === '/crew'}
               onClick={() => {
-                setActive(3);
                 setIsMenuOpen(false);
               }}
             >
@@ -66,9 +65,8 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
           </Link>
           <Link to="/technology">
             <SyledItem
-              active={active === 4}
+              active={pathname === '/technology'}
               onClick={() => {
-                setActive(4);
                 setIsMenuOpen(false);
               }}
             >
